@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+  app:
+    container_name: app
+    image: app
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/src/app
+    expose: 
+      - 3000
+    command: npm run dev
+
+networks:
+  default:
+    name: development
+    external: true
